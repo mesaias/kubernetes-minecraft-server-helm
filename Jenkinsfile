@@ -14,7 +14,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        git branch: 'main', url: 'https://github.com/mesaias/minecraft-kubernetes-helm.git'
+        git branch: 'main', url: 'https://github.com/mesaias/kubernetes-minecraft-server-helm.git'
       }
     }
 
