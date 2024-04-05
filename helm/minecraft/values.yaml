@@ -1,0 +1,26 @@
+# Default values for minecraft.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# ********REQUIRED********
+node:
+  hostname: '${NODE}' # Your kube node's hostname
+# ************************
+
+minecraft:
+  gamemode: 'survival'
+  motd: 'Your super-cool, super-kube, minecraft server version ${VERSION}' # Message of the Day
+  port: 30565
+
+volume:
+  storage: 3Gi
+  path: '/mnt/local-volumes/minecraft' # Path to wherever you want to save your worldfile
+
+resources:
+  limits:
+    memory: 3Gi
+  requests:
+    memory: 2.5Gi
+
+serviceAccount:
+  create: trued
