@@ -23,11 +23,14 @@ pipeline {
           container('helm-kubectl') {
             script {
               def helmListOutput = sh(script: "helm list -n minecraft -o json", returnStdout: true).trim()
-
+              def NODE = "desktop-gbae3cb"
+              
               if (params.options == 'Launch Minecraft server') {
                  if (helmListOutput.contains("minecraft")) {
                         echo "A Minecraft server exists already, don't need create another one"
                     } else {
+                        sh "sed -i -e 's%\\\${VERSION}%${BUILD_NUMBER}%g' helm/minecraft/values.yaml"
+                        sh "sed -i -e 's%\\\${NODE}%${NODE}%g' helm/minecraft/values.yaml"
                         sh "helm install minecraft helm/minecraft --namespace minecraft"
                         //sh "helm upgrade minecraft helm/minecraft --namespace minecraft"
                     }
