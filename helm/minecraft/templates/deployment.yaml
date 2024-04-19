@@ -19,6 +19,10 @@ spec:
       - name: minecraft-data
         persistentVolumeClaim:
           claimName: minecraft-data-pvc
+      securityContext:
+          fsGroup: 0
+          runAsUser: 0
+          runAsGroup: 0
       containers:
       - name: minecraft-server
         image: itzg/minecraft-server:latest
