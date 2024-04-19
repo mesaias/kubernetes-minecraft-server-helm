@@ -14,7 +14,7 @@ minecraft:
 
 volume:
   storage: 3Gi
-  path: '/mnt/local-volumes/minecraft' # Path to wherever you want to save your worldfile
+  path: '.' # Path to wherever you want to save your worldfile
 
 resources:
   limits:
