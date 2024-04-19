@@ -49,7 +49,7 @@ pipeline {
         steps {
             container('helm-kubectl') {
                 script {
-                    def NODE = "desktop-gbae3cb"
+                    def NODE = "ip-10-1-224-115.ec2.internal"
                     sh 'echo Updating reports...'
                     sh "sed -i -e 's%\\\${VERSION}%${BUILD_NUMBER}%g' helm/minecraft/values.yaml"
                     sh "sed -i -e 's%\\\${NODE}%${NODE}%g' helm/minecraft/values.yaml"
