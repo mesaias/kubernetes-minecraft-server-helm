@@ -23,7 +23,7 @@ pipeline {
           container('helm-kubectl') {
             script {
               def helmListOutput = sh(script: "helm list -n minecraft -o json", returnStdout: true).trim()
-              def NODE = "ip-10-1-224-6.ec2.internal"
+              def NODE = "ip-10-1-224-115.ec2.internal"
               
               if (params.options == 'Launch Minecraft server') {
                  if (helmListOutput.contains("minecraft")) {
