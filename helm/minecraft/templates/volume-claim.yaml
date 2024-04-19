@@ -1,12 +1,12 @@
-kind: PersistentVolumeClaim
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: minecraft-data-pvc
+  name: ebs-minecraft-pvc
   namespace: minecraft
 spec:
-  storageClassName: local-storage
   accessModes:
     - ReadWriteOnce
+  storageClassName: gp2
   resources:
     requests:
-      storage: {{ .Values.volume.storage }}
+      storage: 10Gi
